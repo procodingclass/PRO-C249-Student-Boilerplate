@@ -111,15 +111,28 @@ void loop() {
 
 
   Adafruit_MQTT_Subscribe *subscription;
+    while ((subscription = mqtt.readSubscription(5000))) {
+    if (subscription == &sw1) {
+          
+    }
+    if (subscription == &sw1) {
+          
+    }
   
-
-
-  if(! temperature.publish(q)){
-   
   }
+
+
   
-  if(! level.publish(p)){
-  
+  if (! temperature.publish(q)) {
+    //Serial.println(F("Temp Failed"));
+  } else {
+    //Serial.println(F("Temp OK!"));
+  }
+
+  if (! level.publish(p)) {
+    //Serial.println(F("pressure Level Failed"));
+  } else {
+    //Serial.println(F("pressure Level OK!"));
   }
   
   
